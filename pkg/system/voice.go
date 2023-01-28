@@ -19,14 +19,14 @@ const (
 )
 
 type VoiceData struct {
-	Country             string `json:"country"`
-	Bandwidth           string `json:"bandwidth"`
-	ResponseTime        string `json:"response_time"`
-	Provider            string `json:"provider"`
-	ConnectionStability float32
-	TTFB                string
-	VoicePurity         string `json:"voice_purity"`
-	MedianOfCallsTime   string `json:"median_of_calls_time"`
+	Country             string  `json:"country"`
+	Bandwidth           string  `json:"bandwidth"`
+	ResponseTime        string  `json:"response_time"`
+	Provider            string  `json:"provider"`
+	ConnectionStability float32 `json:"connection_stability"`
+	TTFB                string  `json:"ttfb"`
+	VoicePurity         string  `json:"voice_purity"`
+	MedianOfCallsTime   string  `json:"median_of_calls_time"`
 }
 
 func init() {
