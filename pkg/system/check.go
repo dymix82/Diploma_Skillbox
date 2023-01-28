@@ -11,6 +11,20 @@ var (
 		"E-Voice":          true,
 		"JustPhone":        true,
 	}
+	MailProvider = map[string]bool{
+		"Yahoo":       true,
+		"Hotmail":     true,
+		"MSN":         true,
+		"Orange":      true,
+		"Comcast":     true,
+		"AOL":         true,
+		"Live":        true,
+		"RediffMail":  true,
+		"GMX":         true,
+		"Proton Mail": true,
+		"Yandex":      true,
+		"Mail.ru":     true,
+	}
 	countryCode = map[string]string{
 		"AD": "Andorra",
 		"AE": "United Arab Emirates",
@@ -278,6 +292,12 @@ func isCountryOK(country string) bool {
 }
 func isProviderCallOK(a string) bool {
 	if _, ok := CallProvider[a]; !ok {
+		return false
+	}
+	return true
+}
+func isProviderMailOK(a string) bool {
+	if _, ok := MailProvider[a]; !ok {
 		return false
 	}
 	return true

@@ -6,4 +6,5 @@ func main() {
 	system.ImportSMS()
 	system.ImportMMS()
 	system.ImportVoice()
+	system.ImportEmail()
 }
