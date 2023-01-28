@@ -1,4 +1,4 @@
-package sms
+package system
 
 var (
 	SMSProvider = map[string]bool{

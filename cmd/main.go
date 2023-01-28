@@ -1,9 +1,9 @@
 package main
 
-import "main/pkg/sms"
+import "main/pkg/system"
 
 func main() {
-	sms.ImportSMS()
-	sms.ImportMMS()
-	sms.ImportVoice()
+	system.ImportSMS()
+	system.ImportMMS()
+	system.ImportVoice()
 }
