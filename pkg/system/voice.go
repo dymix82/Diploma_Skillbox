@@ -49,7 +49,7 @@ func parseCall(line string) (VoiceData, bool) {
 	call := strings.Split(line, ";")
 
 	switch {
-	case len(call) != 8:
+	case len(call) != 3:
 		fallthrough
 	case !isCountryOK(call[CountryCall]):
 		fallthrough
