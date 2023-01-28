@@ -3,6 +3,7 @@ package sms
 import (
 	"fmt"
 	"io/ioutil"
+	"strconv"
 	"strings"
 )
 
@@ -22,7 +23,7 @@ type VoiceData struct {
 	Bandwidth           string
 	ResponseTime        string
 	Provider            string
-	ConnectionStability string
+	ConnectionStability float32
 	TTFB                string
 	VoicePurity         string
 	MedianOfCallsTime   string
@@ -55,12 +56,15 @@ func parseCall(line string) (VoiceData, bool) {
 	case !isProviderCallOK(call[ProviderCall]):
 		return VoiceData{}, false
 	}
+	StabilityString := call[ConnectionStabilityCall]
+	StabilityFloat64, _ := strconv.ParseFloat(StabilityString, 32)
+	StabilityFloat32 := float32(StabilityFloat64)
 	return VoiceData{
 		Country:             call[CountryCall],
 		Bandwidth:           call[BandwidthCall],
 		ResponseTime:        call[ResponseTimeCall],
 		Provider:            call[ProviderCall],
-		ConnectionStability: call[ConnectionStabilityCall],
+		ConnectionStability: StabilityFloat32,
 		TTFB:                call[TTFBCall],
 		VoicePurity:         call[VoicePurityCall],
 		MedianOfCallsTime:   call[MedianOfCallsTimeCall],
