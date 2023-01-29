@@ -302,3 +302,7 @@ func isProviderMailOK(a string) bool {
 	}
 	return true
 }
+
+func CodetoCountryname(a string) string {
+	return countryCode[a]
+}

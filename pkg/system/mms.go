@@ -7,12 +7,7 @@ import (
 	"net/http"
 )
 
-const (
-	CountryMms = iota
-	ProviderMms
-	BandwidthMms
-	ResponseTimeMms
-)
+var MMSdataFiltred []MMSData
 
 type MMSData struct {
 	Country      string `json:"country"`
@@ -32,7 +27,7 @@ func ImportMMS() {
 	response.Body.Close()
 	MMSdata := make([]MMSData, 0)
 	json.Unmarshal(body, &MMSdata)
-	MMSdataFiltred := make([]MMSData, 0)
+	MMSdataFiltred = make([]MMSData, 0)
 	for i, _ := range MMSdata {
 		switch {
 		case !isCountryOK(MMSdata[i].Country):
