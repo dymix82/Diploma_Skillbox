@@ -14,7 +14,6 @@ type IncidentData struct {
 }
 
 func ImportIncident() {
-	// make GET request
 	response, error := http.Get("http://127.0.0.1:8383/accendent")
 	if error != nil {
 		log.Fatalln()

@@ -8,9 +8,9 @@ import (
 func MakeSMSResult() [][]system.SMSData {
 	smsSlicewithNames := system.SMSdata
 	for i := range smsSlicewithNames {
-		if len([]rune(smsSlicewithNames[i].Country)) == 2 {
-			smsSlicewithNames[i].Country = system.CodetoCountryname(smsSlicewithNames[i].Country)
-		}
+		//	if len([]rune(smsSlicewithNames[i].Country)) == 2 {
+		smsSlicewithNames[i].Country = system.CodetoCountryname(smsSlicewithNames[i].Country)
+		//	}
 	}
 	smsSortedbyCountry := make([]system.SMSData, len(system.SMSdata))
 	copy(smsSortedbyCountry, smsSlicewithNames)
@@ -30,9 +30,9 @@ func MakeSMSResult() [][]system.SMSData {
 func MakeMMSResult() [][]system.MMSData {
 	mmsSlicewithNames := system.MMSdataFiltred
 	for i := range mmsSlicewithNames {
-		if len([]rune(mmsSlicewithNames[i].Country)) == 2 {
-			mmsSlicewithNames[i].Country = system.CodetoCountryname(mmsSlicewithNames[i].Country)
-		}
+		//	if len([]rune(mmsSlicewithNames[i].Country)) == 2 {
+		mmsSlicewithNames[i].Country = system.CodetoCountryname(mmsSlicewithNames[i].Country)
+		//	}
 	}
 	mmsSortedbyCountry := make([]system.MMSData, len(system.SMSdata))
 	copy(mmsSortedbyCountry, mmsSlicewithNames)

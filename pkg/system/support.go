@@ -14,7 +14,6 @@ type SupportData struct {
 }
 
 func ImportSupport() {
-	// make GET request
 	response, error := http.Get("http://localhost:8383/support")
 	if error != nil {
 		log.Fatalln()
