@@ -1,7 +1,6 @@
 package system
 
 import (
-	"fmt"
 	"io/ioutil"
 	"log"
 	"math"
@@ -26,18 +25,14 @@ const (
 	BillingCheckoutPage
 )
 
-func ImportBilling() {
+func ImportBilling() BillingData {
 	file, _ := os.Open("billing.data")
-	content, err := ioutil.ReadAll(file)
+	mask, err := ioutil.ReadAll(file)
 	err = file.Close()
 	if err != nil {
 		log.Panicln(err)
 	}
-	fmt.Println(parseBilling(content))
-	//return parseBilling(content), nil
 
-}
-func parseBilling(mask []byte) BillingData {
 	if len(mask) != 6 {
 		return BillingData{}
 	}

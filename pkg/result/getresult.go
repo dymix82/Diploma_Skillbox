@@ -1,6 +1,8 @@
 package result
 
-import "main/pkg/system"
+import (
+	"main/pkg/system"
+)
 
 type ResultT struct {
 	Status bool       `json:"status"` // True, если все этапы сбора данных прошли успешно, False во всех остальных случаях
@@ -16,4 +18,20 @@ type ResultSetT struct {
 	Billing   system.BillingData              `json:"billing"`
 	Support   []int                           `json:"support"`
 	Incidents []system.IncidentData           `json:"incident"`
+}
+
+func MakeStruct() ResultSetT {
+	system.ImportSMS()
+	system.ImportMMS()
+	system.ImportVoice()
+	system.ImportEmail()
+	system.ImportBilling()
+	system.ImportSupport()
+	system.ImportIncident()
+	var result ResultSetT
+	result.MMS = MakeMMSResult()
+	result.SMS = MakeSMSResult()
+	result.VoiceCall = system.ImportVoice()
+	result.Billing = system.ImportBilling()
+	return result
 }

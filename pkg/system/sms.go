@@ -1,7 +1,6 @@
 package system
 
 import (
-	"fmt"
 	"io/ioutil"
 	"strings"
 )
@@ -46,7 +45,7 @@ func ImportSMS() {
 	//	})
 
 	//	value := [][]SMSData{smsSortedbyCountry, smsSortedbyProvider}
-	fmt.Println("SMS: ", SMSdata)
+
 	//for i, _ := range SMSdata {
 	//	fmt.Println(SMSdata[i])
 	//}

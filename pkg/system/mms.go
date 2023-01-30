@@ -37,5 +37,5 @@ func ImportMMS() {
 		}
 		MMSdataFiltred = append(MMSdataFiltred, MMSdata[i])
 	}
-	fmt.Println("MMS: ", MMSdataFiltred)
+
 }

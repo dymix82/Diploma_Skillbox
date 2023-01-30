@@ -2,10 +2,12 @@ package handlers
 
 import (
 	"context"
-	"fmt"
+	"encoding/json"
 	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/render"
 	log "github.com/sirupsen/logrus"
 	"main/pkg/conf"
+	"main/pkg/result"
 	"net/http"
 	"os"
 	"os/signal"
@@ -20,6 +22,9 @@ func (h Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(500)
 		w.Write([]byte("empty or invalid id\n"))
 	}
+}
+func init() {
+
 }
 func Router() {
 	r := chi.NewRouter()
@@ -54,6 +59,9 @@ func Router() {
 	log.Print("Server Exited Properly")
 }
 func hanlder(w http.ResponseWriter, r *http.Request) error {
-	fmt.Println(r)
+	Fr, _ := json.Marshal(result.MakeStruct())
+	//fmt.Println("result: ", Fr)
+	w.Write([]byte(Fr))
+	render.Status(r, http.StatusOK)
 	return nil
 }

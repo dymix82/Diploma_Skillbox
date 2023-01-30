@@ -1,7 +1,6 @@
 package system
 
 import (
-	"fmt"
 	"io/ioutil"
 	"strconv"
 	"strings"
@@ -32,18 +31,18 @@ type VoiceData struct {
 func init() {
 	//	Providers := [3]string{"Topolo", "Rond", "Kildy"}
 }
-func ImportVoice() {
+func ImportVoice() []VoiceData {
 	bytesRead, _ := ioutil.ReadFile("voice.data")
 	fileContent := string(bytesRead)
 	lines := strings.Split(fileContent, "\n")
-	CallData := make([]VoiceData, 0)
+	callData := make([]VoiceData, 0)
 	for _, v := range lines {
 		call, ok := parseCall(v)
 		if ok {
-			CallData = append(CallData, call)
+			callData = append(callData, call)
 		}
 	}
-	fmt.Println("Calls: ", CallData)
+	return callData
 }
 func parseCall(line string) (VoiceData, bool) {
 	call := strings.Split(line, ";")

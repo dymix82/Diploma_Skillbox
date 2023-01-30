@@ -1,15 +1,16 @@
 package result
 
 import (
-	"fmt"
 	"main/pkg/system"
 	"sort"
 )
 
-func MakeSMSResult() {
+func MakeSMSResult() [][]system.SMSData {
 	smsSlicewithNames := system.SMSdata
 	for i := range smsSlicewithNames {
-		smsSlicewithNames[i].Country = system.CodetoCountryname(smsSlicewithNames[i].Country)
+		if len([]rune(smsSlicewithNames[i].Country)) == 2 {
+			smsSlicewithNames[i].Country = system.CodetoCountryname(smsSlicewithNames[i].Country)
+		}
 	}
 	smsSortedbyCountry := make([]system.SMSData, len(system.SMSdata))
 	copy(smsSortedbyCountry, smsSlicewithNames)
@@ -24,16 +25,14 @@ func MakeSMSResult() {
 	})
 
 	SMSResult := [][]system.SMSData{smsSortedbyCountry, smsSortedbyProvider}
-
-	for i := range SMSResult {
-		fmt.Println(SMSResult[i])
-	}
-
+	return SMSResult
 }
-func MakeMMSResult() {
+func MakeMMSResult() [][]system.MMSData {
 	mmsSlicewithNames := system.MMSdataFiltred
 	for i := range mmsSlicewithNames {
-		mmsSlicewithNames[i].Country = system.CodetoCountryname(mmsSlicewithNames[i].Country)
+		if len([]rune(mmsSlicewithNames[i].Country)) == 2 {
+			mmsSlicewithNames[i].Country = system.CodetoCountryname(mmsSlicewithNames[i].Country)
+		}
 	}
 	mmsSortedbyCountry := make([]system.MMSData, len(system.SMSdata))
 	copy(mmsSortedbyCountry, mmsSlicewithNames)
@@ -49,8 +48,6 @@ func MakeMMSResult() {
 
 	MMSResult := [][]system.MMSData{mmsSortedbyCountry, mmsSortedbyProvider}
 
-	for i := range MMSResult {
-		fmt.Println(MMSResult[i])
-	}
+	return MMSResult
 
 }
