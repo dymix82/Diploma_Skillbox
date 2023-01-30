@@ -59,8 +59,10 @@ func Router() {
 	log.Print("Server Exited Properly")
 }
 func hanlder(w http.ResponseWriter, r *http.Request) error {
+	agent := conf.ReadUserAgent(r)
+	ip := conf.ReadUserIP(r)
+	conf.LogRequestPayload(ip, agent)
 	Fr, _ := json.Marshal(result.MakeStruct())
-	//fmt.Println("result: ", Fr)
 	w.Write([]byte(Fr))
 	render.Status(r, http.StatusOK)
 	return nil
