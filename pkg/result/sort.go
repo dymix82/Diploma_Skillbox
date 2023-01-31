@@ -25,7 +25,7 @@ func MakeSMSResult() [][]system.SMSData {
 		return smsSortedbyProvider[i].Provider < smsSortedbyProvider[j].Provider
 	})
 
-	SMSResult := [][]system.SMSData{smsSortedbyCountry, smsSortedbyProvider}
+	SMSResult := [][]system.SMSData{smsSortedbyProvider, smsSortedbyCountry}
 	return SMSResult
 }
 func MakeMMSResult() [][]system.MMSData {
@@ -47,7 +47,7 @@ func MakeMMSResult() [][]system.MMSData {
 		return mmsSortedbyProvider[i].Provider < mmsSortedbyProvider[j].Provider
 	})
 
-	MMSResult := [][]system.MMSData{mmsSortedbyCountry, mmsSortedbyProvider}
+	MMSResult := [][]system.MMSData{mmsSortedbyProvider, mmsSortedbyCountry}
 
 	return MMSResult
 
@@ -64,7 +64,7 @@ func MakeEmailResult() map[string][][]system.EmailData {
 	CountrymapFast := make(map[string][]system.EmailData)
 	count := 0
 	for _, v := range coutries {
-		for i, _ := range system.Emaildata {
+		for i := range system.Emaildata {
 			if v == system.Emaildata[i].Country {
 				count++
 				if count <= 3 {
@@ -83,7 +83,7 @@ func MakeEmailResult() map[string][][]system.EmailData {
 	count = 0
 	len := len(system.Emaildata) - 1
 	for _, v := range coutries {
-		for i, _ := range system.Emaildata {
+		for i := range system.Emaildata {
 			if v == system.Emaildata[len-i].Country {
 				//fmt.Println(system.Emaildata[i])
 				count++
@@ -101,7 +101,7 @@ func MakeEmailResult() map[string][][]system.EmailData {
 	}
 
 	MailResult := make(map[string][][]system.EmailData, 0)
-	for k, _ := range CountrymapSlow {
+	for k := range CountrymapSlow {
 
 		MailResult[k] = [][]system.EmailData{CountrymapFast[k], CountrymapSlow[k]}
 	}
