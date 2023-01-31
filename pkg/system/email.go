@@ -1,8 +1,8 @@
 package system
 
 import (
-	"fmt"
 	"io/ioutil"
+	"sort"
 	"strconv"
 	"strings"
 )
@@ -19,22 +19,22 @@ const (
 	DeliveryTime
 )
 
+var Emaildata []EmailData
+
 func ImportEmail() {
 	bytesRead, _ := ioutil.ReadFile("email.data")
 	fileContent := string(bytesRead)
 	lines := strings.Split(fileContent, "\n")
-	Emaildata := make([]EmailData, 0)
+	Emaildata = make([]EmailData, 0)
 	for _, v := range lines {
 		mail, ok := parseMail(v)
 		if ok {
 			Emaildata = append(Emaildata, mail)
 		}
 	}
-	fmt.Println("Email: ", Emaildata)
-	//for i, _ := range SMSdata {
-	//	fmt.Println(SMSdata[i])
-	//}
-
+	sort.Slice(Emaildata, func(i, j int) bool {
+		return Emaildata[i].DeliveryTime < Emaildata[j].DeliveryTime
+	})
 }
 func parseMail(line string) (EmailData, bool) {
 	mail := strings.Split(line, ";")

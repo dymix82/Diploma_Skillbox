@@ -15,6 +15,8 @@ type Config struct {
 var Cfg Config
 var Con *Config
 
+// Считываем настройки из файла
+
 func GetConf(file string, cnf interface{}) error {
 	yamlFile, err := ioutil.ReadFile(file)
 	if err == nil {
@@ -22,6 +24,8 @@ func GetConf(file string, cnf interface{}) error {
 	}
 	return err
 }
+
+// При запуске устанавливаем настройки логгирования
 func init() {
 	log.SetFormatter(&log.JSONFormatter{})
 	log.SetLevel(log.InfoLevel)
@@ -36,6 +40,8 @@ func init() {
 	Con = &Cfg
 	Con = &Cfg
 }
+
+// Функция для считывания IP из запроса
 func ReadUserIP(req *http.Request) string {
 	IPAddress := req.Header.Get("X-Real-Ip")
 	if IPAddress == "" {
@@ -46,10 +52,14 @@ func ReadUserIP(req *http.Request) string {
 	}
 	return IPAddress
 }
+
+// Функция для считывания UserAgent из запроса
 func ReadUserAgent(req *http.Request) string {
 	UserAgent := req.Header.Get("User-Agent")
 	return UserAgent
 }
+
+// Записываем в лог файл запись о запросе
 func LogRequestPayload(userIP, userAgent string) {
 	log.Infof("userIP: %s, User-Agent: %s", userIP, userAgent)
 }

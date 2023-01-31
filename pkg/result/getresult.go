@@ -28,10 +28,15 @@ func MakeStruct() ResultSetT {
 	system.ImportBilling()
 	system.ImportSupport()
 	system.ImportIncident()
+
 	var result ResultSetT
 	result.MMS = MakeMMSResult()
 	result.SMS = MakeSMSResult()
 	result.VoiceCall = system.ImportVoice()
 	result.Billing = system.ImportBilling()
+	result.Email = MakeEmailResult()
 	return result
+}
+func MakeAnswerStruct() ResultT {
+	return ResultT{}
 }

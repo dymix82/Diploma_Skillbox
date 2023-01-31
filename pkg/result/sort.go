@@ -1,6 +1,7 @@
 package result
 
 import (
+	"golang.org/x/exp/slices"
 	"main/pkg/system"
 	"sort"
 )
@@ -50,4 +51,59 @@ func MakeMMSResult() [][]system.MMSData {
 
 	return MMSResult
 
+}
+
+func MakeEmailResult() map[string][][]system.EmailData {
+	coutries := make([]string, 0)
+	for _, v := range system.Emaildata {
+		if !slices.Contains(coutries, v.Country) {
+			coutries = append(coutries, v.Country)
+		}
+	}
+
+	CountrymapFast := make(map[string][]system.EmailData)
+	count := 0
+	for _, v := range coutries {
+		for i, _ := range system.Emaildata {
+			if v == system.Emaildata[i].Country {
+				count++
+				if count <= 3 {
+					CountrymapFast[v] = append(CountrymapFast[v], system.Emaildata[i])
+				} else {
+					count = 0
+					break
+				}
+
+			}
+
+		}
+
+	}
+	CountrymapSlow := make(map[string][]system.EmailData)
+	count = 0
+	len := len(system.Emaildata) - 1
+	for _, v := range coutries {
+		for i, _ := range system.Emaildata {
+			if v == system.Emaildata[len-i].Country {
+				//fmt.Println(system.Emaildata[i])
+				count++
+				if count <= 3 {
+					CountrymapSlow[v] = append(CountrymapSlow[v], system.Emaildata[len-i])
+				} else {
+					count = 0
+					break
+				}
+
+			}
+
+		}
+
+	}
+
+	MailResult := make(map[string][][]system.EmailData, 0)
+	for k, _ := range CountrymapSlow {
+
+		MailResult[k] = [][]system.EmailData{CountrymapFast[k], CountrymapSlow[k]}
+	}
+	return MailResult
 }

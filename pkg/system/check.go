@@ -12,6 +12,7 @@ var (
 		"JustPhone":        true,
 	}
 	MailProvider = map[string]bool{
+		"Gmail":       true,
 		"Yahoo":       true,
 		"Hotmail":     true,
 		"MSN":         true,
