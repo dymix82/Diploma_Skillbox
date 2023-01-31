@@ -54,16 +54,16 @@ func MakeMMSResult() [][]system.MMSData {
 }
 
 func MakeEmailResult() map[string][][]system.EmailData {
-	coutries := make([]string, 0)
+	countries := make([]string, 0)
 	for _, v := range system.Emaildata {
-		if !slices.Contains(coutries, v.Country) {
-			coutries = append(coutries, v.Country)
+		if !slices.Contains(countries, v.Country) {
+			countries = append(countries, v.Country)
 		}
 	}
 
 	CountrymapFast := make(map[string][]system.EmailData)
 	count := 0
-	for _, v := range coutries {
+	for _, v := range countries {
 		for i := range system.Emaildata {
 			if v == system.Emaildata[i].Country {
 				count++
@@ -82,7 +82,7 @@ func MakeEmailResult() map[string][][]system.EmailData {
 	CountrymapSlow := make(map[string][]system.EmailData)
 	count = 0
 	length := len(system.Emaildata) - 1
-	for _, v := range coutries {
+	for _, v := range countries {
 		for i := range system.Emaildata {
 			if v == system.Emaildata[length-i].Country {
 				//fmt.Println(system.Emaildata[i])
