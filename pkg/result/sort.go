@@ -81,14 +81,14 @@ func MakeEmailResult() map[string][][]system.EmailData {
 	}
 	CountrymapSlow := make(map[string][]system.EmailData)
 	count = 0
-	len := len(system.Emaildata) - 1
+	length := len(system.Emaildata) - 1
 	for _, v := range coutries {
 		for i := range system.Emaildata {
-			if v == system.Emaildata[len-i].Country {
+			if v == system.Emaildata[length-i].Country {
 				//fmt.Println(system.Emaildata[i])
 				count++
 				if count <= 3 {
-					CountrymapSlow[v] = append(CountrymapSlow[v], system.Emaildata[len-i])
+					CountrymapSlow[v] = append(CountrymapSlow[v], system.Emaildata[length-i])
 				} else {
 					count = 0
 					break
