@@ -7,7 +7,11 @@ import (
 	"io/ioutil"
 	"main/pkg/conf"
 	"net/http"
+	"sort"
+	_ "sort"
 )
+
+type By func(p1, p2 *IncidentData) bool
 
 type IncidentData struct {
 	Topic  string `json:"topic"`
@@ -30,5 +34,8 @@ func ImportIncident() ([]IncidentData, error) {
 	response.Body.Close()
 	IncidentData := make([]IncidentData, 0)
 	json.Unmarshal(body, &IncidentData)
+	sort.Slice(IncidentData, func(i, j int) bool {
+		return IncidentData[i].Status > IncidentData[j].Status
+	})
 	return IncidentData, nil
 }

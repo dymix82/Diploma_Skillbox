@@ -1137,7 +1137,7 @@ Transfer-Encoding: chunked
 ```
 Response code: 200 (OK); Time: 47ms (47 ms); Content length: 21220 bytes (21,22 kB)
 ```
-```
+
 Факт запроса записывается в лог файл, в запись попадает IP и UserAgent клиента
 ```json
 {"level":"info","msg":"userIP: 127.0.0.1:61415, User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)","time":"2023-02-01T20:52:52+03:00"}

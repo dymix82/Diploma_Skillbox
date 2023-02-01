@@ -35,6 +35,7 @@ func ImportEmail() ([]EmailData, error) {
 			Emaildata = append(Emaildata, mail)
 		}
 	}
+	// Сортируем по времени доставки
 	sort.Slice(Emaildata, func(i, j int) bool {
 		return Emaildata[i].DeliveryTime < Emaildata[j].DeliveryTime
 	})
