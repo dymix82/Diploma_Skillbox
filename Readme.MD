@@ -32,14 +32,15 @@ Diploma_Skillbox> go run cmd\main.go
 GET http://localhost:8080/
 ```
 
-```json
+```
 http://localhost:8080
 
 HTTP/1.1 200 OK
 Date: Wed, 01 Feb 2023 17:52:52 GMT
 Content-Type: text/plain; charset=utf-8
 Transfer-Encoding: chunked
-
+```
+```json
 {
   "status": true,
   "data": {
@@ -1132,9 +1133,10 @@ Transfer-Encoding: chunked
   },
   "error": ""
  }
-
+```
+```
 Response code: 200 (OK); Time: 47ms (47 ms); Content length: 21220 bytes (21,22 kB)
-
+```
 ```
 Факт запроса записывается в лог файл, в запись попадает IP и UserAgent клиента
 ```json
