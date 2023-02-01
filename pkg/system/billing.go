@@ -31,10 +31,10 @@ func ImportBilling() (BillingData, error) {
 	if err != nil {
 		return BillingData{}, err
 	}
-	mask, error := ioutil.ReadAll(file)
-	error = file.Close()
-	if error != nil {
-		return BillingData{}, error
+	mask, err2 := ioutil.ReadAll(file)
+	err2 = file.Close()
+	if err2 != nil {
+		return BillingData{}, err2
 	}
 
 	if len(mask) != 6 {

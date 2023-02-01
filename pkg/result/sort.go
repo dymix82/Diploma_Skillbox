@@ -32,9 +32,9 @@ func MakeSMSResult() ([][]system.SMSData, error) {
 	return SMSResult, nil
 }
 func MakeMMSResult() ([][]system.MMSData, error) {
-	mmsSlicewithNames, error := system.ImportMMS()
-	if error != nil {
-		return [][]system.MMSData{}, error
+	mmsSlicewithNames, err := system.ImportMMS()
+	if err != nil {
+		return [][]system.MMSData{}, err
 	}
 	for i := range mmsSlicewithNames {
 		//	if len([]rune(mmsSlicewithNames[i].Country)) == 2 {

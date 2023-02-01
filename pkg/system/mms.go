@@ -19,16 +19,16 @@ type MMSData struct {
 
 func ImportMMS() ([]MMSData, error) {
 	// make GET request
-	response, error := http.Get("http://localhost:8383/mms")
-	if error != nil {
-		return []MMSData{}, error
+	response, err := http.Get("http://localhost:8383/mms")
+	if err != nil {
+		return []MMSData{}, err
 	}
 
-	body, error := ioutil.ReadAll(response.Body)
+	body, err := ioutil.ReadAll(response.Body)
 	if response.StatusCode != 200 || len(body) == 0 {
-		error = errors.New("Не доступен API по загрузке MMS")
-		fmt.Println(error)
-		return []MMSData{}, error
+		err = errors.New("Не доступен API по загрузке MMS")
+		fmt.Println(err)
+		return []MMSData{}, err
 
 	}
 	response.Body.Close()

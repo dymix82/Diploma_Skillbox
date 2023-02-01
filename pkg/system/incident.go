@@ -14,15 +14,15 @@ type IncidentData struct {
 }
 
 func ImportIncident() ([]IncidentData, error) {
-	response, error := http.Get("http://127.0.0.1:8383/accendent")
-	if error != nil {
-		return []IncidentData{}, error
+	response, err := http.Get("http://127.0.0.1:8383/accendent")
+	if err != nil {
+		return []IncidentData{}, err
 	}
-	body, error := ioutil.ReadAll(response.Body)
+	body, err := ioutil.ReadAll(response.Body)
 	if response.StatusCode != 200 || len(body) == 0 {
-		error = errors.New("Не доступен API по загрузке инцедентов")
-		fmt.Println(error)
-		return []IncidentData{}, error
+		err = errors.New("Не доступен API по загрузке инцедентов")
+		fmt.Println(err)
+		return []IncidentData{}, err
 
 	}
 	response.Body.Close()

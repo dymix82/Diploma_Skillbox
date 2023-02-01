@@ -21,9 +21,9 @@ const (
 
 // Читаем файл с данными о почте
 func ImportEmail() ([]EmailData, error) {
-	bytesRead, error := ioutil.ReadFile("email.data")
-	if error != nil {
-		return []EmailData{}, error
+	bytesRead, err := ioutil.ReadFile("email.data")
+	if err != nil {
+		return []EmailData{}, err
 	}
 	fileContent := string(bytesRead)
 	lines := strings.Split(fileContent, "\n")
