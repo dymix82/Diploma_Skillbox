@@ -56,3 +56,5 @@
 {"level":"error","msg":"Get \"http://127.0.0.1:8383/mms\": dial tcp 127.0.0.1:8383: connectex: No connection could be made because the target machine actively refused it.","time":"2023-02-01T21:45:50+03:00"}
 {"level":"error","msg":"Get \"http://127.0.0.1:8383/accendent\": dial tcp 127.0.0.1:8383: connectex: No connection could be made because the target machine actively refused it.","time":"2023-02-01T21:45:52+03:00"}
 {"level":"error","msg":"Get \"http://127.0.0.1:8383/support\": dial tcp 127.0.0.1:8383: connectex: No connection could be made because the target machine actively refused it.","time":"2023-02-01T21:45:54+03:00"}
+{"level":"info","msg":"Server Stopped","time":"2023-02-01T21:54:44+03:00"}
+{"level":"info","msg":"Server Exited Properly","time":"2023-02-01T21:54:44+03:00"}
