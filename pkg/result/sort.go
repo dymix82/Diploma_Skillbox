@@ -6,6 +6,7 @@ import (
 	"sort"
 )
 
+// Функция приведения данных о СМС  в соотвествии с ТЗ
 func MakeSMSResult() ([][]system.SMSData, error) {
 	smsSlicewithNames, err := system.ImportSMS()
 	if err != nil {
@@ -31,6 +32,8 @@ func MakeSMSResult() ([][]system.SMSData, error) {
 	SMSResult := [][]system.SMSData{smsSortedbyProvider, smsSortedbyCountry}
 	return SMSResult, nil
 }
+
+// Функция приведения данных о ММС  в соотвествии с ТЗ
 func MakeMMSResult() ([][]system.MMSData, error) {
 	mmsSlicewithNames, err := system.ImportMMS()
 	if err != nil {
@@ -59,6 +62,7 @@ func MakeMMSResult() ([][]system.MMSData, error) {
 
 }
 
+// Функция приведения данных о почте  в соотвествии с ТЗ
 func MakeEmailResult() (map[string][][]system.EmailData, error) {
 	MailResult := make(map[string][][]system.EmailData, 0)
 	Emaildata, err := system.ImportEmail()
@@ -116,4 +120,29 @@ func MakeEmailResult() (map[string][][]system.EmailData, error) {
 		MailResult[k] = [][]system.EmailData{CountrymapFast[k], CountrymapSlow[k]}
 	}
 	return MailResult, nil
+}
+
+// Функция приведения данных о системе Support в соотвествии с ТЗ
+func getSupport() ([]int, error) {
+	var load int
+	supportSlice, err := system.ImportSupport()
+	if err != nil {
+		return []int{}, err
+	}
+	activeTickets := 0
+	for i := range supportSlice {
+		activeTickets += supportSlice[i].ActiveTickets
+	}
+
+	switch {
+	case activeTickets < 9:
+		load = 1
+	case activeTickets < 16:
+		load = 2
+	case activeTickets > 16:
+		load = 3
+	}
+	waitingTime := activeTickets * (60 / 18)
+
+	return []int{load, waitingTime}, nil
 }

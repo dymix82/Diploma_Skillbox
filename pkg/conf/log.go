@@ -8,8 +8,17 @@ import (
 	"os"
 )
 
+// Описание конфига
 type Config struct {
-	Apport string `yaml:"apport"`
+	Apport       string `yaml:"apport"`       // Порт
+	Logfile      string `yaml:"logfile"`      // Файл логов
+	Smsdata      string `yaml:"smsdata"`      // Файл данных смс
+	Voicedata    string `yaml:"voicedata"`    // Файл данных звонков
+	Incidentdata string `yaml:"incidentdata"` // Ссылка на API инцедентов
+	Mmsdata      string `yaml:"mmsdata"`      // Ссылка на API ММS
+	Supportdata  string `yaml:"supportdata"`  // Ссылка на API поддержки
+	Emaildata    string `yaml:"emaildata"`    // Файл данных почты
+	Billing      string `yaml:"billing"`      // Файл данных биллинга
 }
 
 var Cfg Config
@@ -25,20 +34,25 @@ func GetConf(file string, cnf interface{}) error {
 	return err
 }
 
-// При запуске устанавливаем настройки логгирования
+// При запуске устанавливаем настройки логирования
 func init() {
-	log.SetFormatter(&log.JSONFormatter{})
-	log.SetLevel(log.InfoLevel)
-	f, err := os.OpenFile("log.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
-	if err != nil {
-		log.Fatal(err)
-	}
-	log.SetOutput(f)
+
 	if err := GetConf("my_conf.yml", &Cfg); err != nil {
 		log.Panicln(err)
 	}
 	Con = &Cfg
-	Con = &Cfg
+	log.SetFormatter(&log.JSONFormatter{})
+	log.SetLevel(log.InfoLevel)
+	// Если файл не указан в настройках то по умолчанию пишем в log.txt
+	logfile := Con.Logfile
+	if len([]rune(logfile)) == 0 {
+		logfile = "log.txt"
+	}
+	f, err := os.OpenFile(logfile, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	log.SetOutput(f)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 // Функция для считывания IP из запроса

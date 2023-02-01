@@ -2,6 +2,7 @@ package system
 
 import (
 	"io/ioutil"
+	"main/pkg/conf"
 	"strconv"
 	"strings"
 )
@@ -28,8 +29,9 @@ type VoiceData struct {
 	MedianOfCallsTime   string  `json:"median_of_calls_time"`
 }
 
+// Импорт файла c данными о звонках
 func ImportVoice() ([]VoiceData, error) {
-	bytesRead, err := ioutil.ReadFile("voice.data")
+	bytesRead, err := ioutil.ReadFile(conf.Con.Voicedata)
 	if err != nil {
 		return []VoiceData{}, err
 	}
@@ -44,6 +46,8 @@ func ImportVoice() ([]VoiceData, error) {
 	}
 	return callData, nil
 }
+
+// Проверка файла c данными о звонках на ошибки
 func parseCall(line string) (VoiceData, bool) {
 	call := strings.Split(line, ";")
 

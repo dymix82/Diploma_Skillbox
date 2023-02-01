@@ -2,6 +2,7 @@ package system
 
 import (
 	"io/ioutil"
+	"main/pkg/conf"
 	"sort"
 	"strconv"
 	"strings"
@@ -21,7 +22,7 @@ const (
 
 // Читаем файл с данными о почте
 func ImportEmail() ([]EmailData, error) {
-	bytesRead, err := ioutil.ReadFile("email.data")
+	bytesRead, err := ioutil.ReadFile(conf.Con.Emaildata)
 	if err != nil {
 		return []EmailData{}, err
 	}

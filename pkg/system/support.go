@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"io/ioutil"
+	"main/pkg/conf"
 	"net/http"
 )
 
@@ -13,21 +14,21 @@ type SupportData struct {
 	ActiveTickets int    `json:"active_tickets"`
 }
 
+// Загрузка данных о данных системы Поддержки
 func ImportSupport() ([]SupportData, error) {
-	response, error := http.Get("http://localhost:8383/support")
-	if error != nil {
-		return []SupportData{}, error
+	response, err := http.Get(conf.Con.Supportdata)
+	if err != nil {
+		return []SupportData{}, err
 	}
-	body, error := ioutil.ReadAll(response.Body)
+	body, err := ioutil.ReadAll(response.Body)
 	if response.StatusCode != 200 || len(body) == 0 {
-		error = errors.New("Не доступен API по загрузке информации по поддержке")
-		fmt.Println(error)
-		return []SupportData{}, error
+		err = errors.New("Не доступен API по загрузке информации по поддержке")
+		fmt.Println(err)
+		return []SupportData{}, err
 
 	}
 	response.Body.Close()
 	SupportData := make([]SupportData, 0)
 	json.Unmarshal(body, &SupportData)
-	fmt.Println(SupportData)
 	return SupportData, nil
 }

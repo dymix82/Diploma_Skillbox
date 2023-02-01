@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"io/ioutil"
+	"main/pkg/conf"
 	"net/http"
 )
 
@@ -13,8 +14,9 @@ type IncidentData struct {
 	Status string `json:"status"` // возможные статусы active и closed
 }
 
+// Загрузка данных о тикетах
 func ImportIncident() ([]IncidentData, error) {
-	response, err := http.Get("http://127.0.0.1:8383/accendent")
+	response, err := http.Get(conf.Con.Incidentdata)
 	if err != nil {
 		return []IncidentData{}, err
 	}

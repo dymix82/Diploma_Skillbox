@@ -3,6 +3,7 @@ package system
 import (
 	"errors"
 	"io/ioutil"
+	"main/pkg/conf"
 	"math"
 	"os"
 )
@@ -27,7 +28,7 @@ const (
 
 // Импорт файла с маской для биллинга
 func ImportBilling() (BillingData, error) {
-	file, err := os.Open("billing.data")
+	file, err := os.Open(conf.Con.Billing)
 	if err != nil {
 		return BillingData{}, err
 	}

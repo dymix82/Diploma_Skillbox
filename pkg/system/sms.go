@@ -2,6 +2,7 @@ package system
 
 import (
 	"io/ioutil"
+	"main/pkg/conf"
 	"strings"
 )
 
@@ -19,12 +20,10 @@ type SMSData struct {
 	Provider     string `json:"provider"`
 }
 
-func init() {
-
-}
+// Импорт файла c данными о СМС
 func ImportSMS() ([]SMSData, error) {
 
-	bytesRead, err := ioutil.ReadFile("sms.data")
+	bytesRead, err := ioutil.ReadFile(conf.Con.Smsdata)
 	if err != nil {
 		return []SMSData{}, err
 	}
@@ -40,6 +39,8 @@ func ImportSMS() ([]SMSData, error) {
 	return SMSdata, nil
 
 }
+
+// Проверка файла c данными о смс на ошибки
 func parseLine(line string) (SMSData, bool) {
 	sms := strings.Split(line, ";")
 

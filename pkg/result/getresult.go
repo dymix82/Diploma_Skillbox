@@ -21,12 +21,11 @@ type ResultSetT struct {
 	Incidents []system.IncidentData           `json:"incident"`
 }
 
-// Создание структуры ResultT для вывода
+// Создание структуры c результатами для вывода
 func MakeStruct() ResultT {
 	status := true
 	var ShowedErr string
 
-	system.ImportSupport()
 	var err error
 	var resultSetT ResultSetT
 	var resultT ResultT
@@ -63,6 +62,13 @@ func MakeStruct() ResultT {
 		ShowedErr += err.Error() + "\t"
 	}
 	resultSetT.Incidents, err = system.ImportIncident()
+	if err != nil {
+		log.Info(err)
+		status = false
+		ShowedErr += err.Error() + "\t"
+	}
+
+	resultSetT.Support, err = getSupport()
 	if err != nil {
 		log.Info(err)
 		status = false

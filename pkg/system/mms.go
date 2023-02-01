@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"io/ioutil"
+	"main/pkg/conf"
 	"net/http"
 )
 
@@ -17,9 +18,10 @@ type MMSData struct {
 	ResponseTime string `json:"response_time"`
 }
 
+// Импорт  данных о ММС через API
 func ImportMMS() ([]MMSData, error) {
 	// make GET request
-	response, err := http.Get("http://localhost:8383/mms")
+	response, err := http.Get(conf.Con.Mmsdata)
 	if err != nil {
 		return []MMSData{}, err
 	}
@@ -35,7 +37,7 @@ func ImportMMS() ([]MMSData, error) {
 	MMSdata := make([]MMSData, 0)
 	json.Unmarshal(body, &MMSdata)
 	MMSdataFiltred = make([]MMSData, 0)
-	for i, _ := range MMSdata {
+	for i := range MMSdata {
 		switch {
 		case !isCountryOK(MMSdata[i].Country):
 			fallthrough
