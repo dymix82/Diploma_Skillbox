@@ -8,7 +8,7 @@ github.com/go-chi/render
 github.com/sirupsen/logrus
 gopkg.in/yaml.v3 
 ```
-настройки хроняться в файле my_conf.yml
+настройки хроняться в файле my_conf.yml:
 ```yaml 
 apport: 8080    #Порт
 logfile: log.txt #Путь до файла логов
