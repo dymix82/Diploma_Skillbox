@@ -20,7 +20,7 @@ type Handler func(w http.ResponseWriter, r *http.Request) error
 func (h Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	if err := h(w, r); err != nil {
 		w.WriteHeader(500)
-		w.Write([]byte("empty or invalid id\n"))
+		w.Write([]byte("500 Error"))
 	}
 }
 
@@ -61,7 +61,7 @@ func hanlder(w http.ResponseWriter, r *http.Request) error {
 	agent := conf.ReadUserAgent(r)
 	ip := conf.ReadUserIP(r)
 	conf.LogRequestPayload(ip, agent)
-	Fr, _ := json.MarshalIndent(result.MakeStruct(), "", " ")
+	Fr, _ := json.MarshalIndent(result.MakeStruct(), " ", " ")
 	w.Write([]byte(Fr))
 	render.Status(r, http.StatusOK)
 	return nil

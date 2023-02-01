@@ -1,8 +1,8 @@
 package system
 
 import (
+	"errors"
 	"io/ioutil"
-	"log"
 	"math"
 	"os"
 )
@@ -25,16 +25,20 @@ const (
 	BillingCheckoutPage
 )
 
-func ImportBilling() BillingData {
-	file, _ := os.Open("billing.data")
-	mask, err := ioutil.ReadAll(file)
-	err = file.Close()
+// Импорт файла с маской для биллинга
+func ImportBilling() (BillingData, error) {
+	file, err := os.Open("billing.data")
 	if err != nil {
-		log.Panicln(err)
+		return BillingData{}, err
+	}
+	mask, error := ioutil.ReadAll(file)
+	error = file.Close()
+	if error != nil {
+		return BillingData{}, error
 	}
 
 	if len(mask) != 6 {
-		return BillingData{}
+		return BillingData{}, errors.New("Billing: Данные в маске не полные")
 	}
 
 	var bitMask int8 = 0
@@ -58,5 +62,5 @@ func ImportBilling() BillingData {
 		Recurring:      recurring,
 		FraudControl:   fraudControl,
 		CheckoutPage:   checkoutPage,
-	}
+	}, nil
 }

@@ -28,11 +28,11 @@ type VoiceData struct {
 	MedianOfCallsTime   string  `json:"median_of_calls_time"`
 }
 
-func init() {
-	//	Providers := [3]string{"Topolo", "Rond", "Kildy"}
-}
-func ImportVoice() []VoiceData {
-	bytesRead, _ := ioutil.ReadFile("voice.data")
+func ImportVoice() ([]VoiceData, error) {
+	bytesRead, err := ioutil.ReadFile("voice.data")
+	if err != nil {
+		return []VoiceData{}, err
+	}
 	fileContent := string(bytesRead)
 	lines := strings.Split(fileContent, "\n")
 	callData := make([]VoiceData, 0)
@@ -42,7 +42,7 @@ func ImportVoice() []VoiceData {
 			callData = append(callData, call)
 		}
 	}
-	return callData
+	return callData, nil
 }
 func parseCall(line string) (VoiceData, bool) {
 	call := strings.Split(line, ";")

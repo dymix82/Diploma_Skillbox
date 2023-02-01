@@ -1,6 +1,7 @@
 package result
 
 import (
+	log "github.com/sirupsen/logrus"
 	"main/pkg/system"
 )
 
@@ -20,23 +21,57 @@ type ResultSetT struct {
 	Incidents []system.IncidentData           `json:"incident"`
 }
 
-func MakeStruct() ResultSetT {
-	system.ImportSMS()
-	system.ImportMMS()
-	system.ImportVoice()
-	system.ImportEmail()
-	system.ImportBilling()
-	system.ImportSupport()
-	system.ImportIncident()
+// Создание структуры ResultT для вывода
+func MakeStruct() ResultT {
+	status := true
+	var ShowedErr string
 
-	var result ResultSetT
-	result.MMS = MakeMMSResult()
-	result.SMS = MakeSMSResult()
-	result.VoiceCall = system.ImportVoice()
-	result.Billing = system.ImportBilling()
-	result.Email = MakeEmailResult()
-	return result
-}
-func MakeAnswerStruct() ResultT {
-	return ResultT{}
+	system.ImportSupport()
+	var err error
+	var resultSetT ResultSetT
+	var resultT ResultT
+
+	resultSetT.MMS, err = MakeMMSResult()
+	if err != nil {
+		log.Info(err)
+		status = false
+		ShowedErr = err.Error() + "\t"
+	}
+
+	resultSetT.SMS, err = MakeSMSResult()
+	if err != nil {
+		log.Info(err)
+		status = false
+		ShowedErr += err.Error() + "\t"
+	}
+	resultSetT.VoiceCall, err = system.ImportVoice()
+	if err != nil {
+		log.Info(err)
+		status = false
+		ShowedErr += err.Error() + "\t"
+	}
+	resultSetT.Billing, err = system.ImportBilling()
+	if err != nil {
+		log.Info(err)
+		status = false
+		ShowedErr += err.Error() + "\t"
+	}
+	resultSetT.Email, err = MakeEmailResult()
+	if err != nil {
+		log.Info(err)
+		status = false
+		ShowedErr += err.Error() + "\t"
+	}
+	resultSetT.Incidents, err = system.ImportIncident()
+	if err != nil {
+		log.Info(err)
+		status = false
+		ShowedErr += err.Error() + "\t"
+	}
+
+	resultT.Status = status
+	resultT.Data = resultSetT
+	resultT.Error = ShowedErr
+
+	return resultT
 }

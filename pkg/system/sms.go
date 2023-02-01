@@ -19,22 +19,25 @@ type SMSData struct {
 	Provider     string `json:"provider"`
 }
 
-var SMSdata []SMSData
-
 func init() {
 
 }
-func ImportSMS() {
-	bytesRead, _ := ioutil.ReadFile("sms.data")
+func ImportSMS() ([]SMSData, error) {
+
+	bytesRead, err := ioutil.ReadFile("sms.data")
+	if err != nil {
+		return []SMSData{}, err
+	}
 	fileContent := string(bytesRead)
 	lines := strings.Split(fileContent, "\n")
-	SMSdata = make([]SMSData, 0)
+	SMSdata := make([]SMSData, 0)
 	for _, v := range lines {
 		sms, ok := parseLine(v)
 		if ok {
 			SMSdata = append(SMSdata, sms)
 		}
 	}
+	return SMSdata, nil
 
 }
 func parseLine(line string) (SMSData, bool) {

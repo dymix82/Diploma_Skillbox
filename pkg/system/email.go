@@ -19,13 +19,15 @@ const (
 	DeliveryTime
 )
 
-var Emaildata []EmailData
-
-func ImportEmail() {
-	bytesRead, _ := ioutil.ReadFile("email.data")
+// Читаем файл с данными о почте
+func ImportEmail() ([]EmailData, error) {
+	bytesRead, error := ioutil.ReadFile("email.data")
+	if error != nil {
+		return []EmailData{}, error
+	}
 	fileContent := string(bytesRead)
 	lines := strings.Split(fileContent, "\n")
-	Emaildata = make([]EmailData, 0)
+	Emaildata := make([]EmailData, 0)
 	for _, v := range lines {
 		mail, ok := parseMail(v)
 		if ok {
@@ -35,7 +37,10 @@ func ImportEmail() {
 	sort.Slice(Emaildata, func(i, j int) bool {
 		return Emaildata[i].DeliveryTime < Emaildata[j].DeliveryTime
 	})
+	return Emaildata, nil
 }
+
+// Функции проверки файла с данными о почте построчно
 func parseMail(line string) (EmailData, bool) {
 	mail := strings.Split(line, ";")
 

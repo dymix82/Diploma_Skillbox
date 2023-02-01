@@ -279,24 +279,31 @@ var (
 	}
 )
 
+// Проверка провайдера для СМС по списку
 func isProviderSMSOK(a string) bool {
 	if _, ok := SMSProvider[a]; !ok {
 		return false
 	}
 	return true
 }
+
+// Проверка кода страны на существование
 func isCountryOK(country string) bool {
 	if _, ok := countryCode[country]; !ok {
 		return false
 	}
 	return true
 }
+
+// Проверка провайдера для Звонков по списку
 func isProviderCallOK(a string) bool {
 	if _, ok := CallProvider[a]; !ok {
 		return false
 	}
 	return true
 }
+
+// Проверка провайдера для почты по списку
 func isProviderMailOK(a string) bool {
 	if _, ok := MailProvider[a]; !ok {
 		return false
@@ -304,6 +311,7 @@ func isProviderMailOK(a string) bool {
 	return true
 }
 
+// Возвращаем название страны по коду
 func CodetoCountryname(a string) string {
 	return countryCode[a]
 }
