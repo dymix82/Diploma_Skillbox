@@ -1,6 +1,12 @@
 # Итоговая аттестация по программе профессиональной переподготовки «Go-разработчик»
 
 ## Конфигурация
+используемые модули
+```
+github.com/go-chi/chi/v5
+github.com/go-chi/render
+github.com/sirupsen/logrus
+```
 настройки хроняться в файле my_conf.yml
 ```yaml 
 apport: 8080    #Порт
