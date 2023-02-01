@@ -32,45 +32,45 @@ func MakeStruct() ResultT {
 
 	resultSetT.MMS, err = MakeMMSResult()
 	if err != nil {
-		log.Info(err)
+		log.Error(err)
 		status = false
 		ShowedErr = err.Error() + "\t"
 	}
 
 	resultSetT.SMS, err = MakeSMSResult()
 	if err != nil {
-		log.Info(err)
+		log.Error(err)
 		status = false
 		ShowedErr += err.Error() + "\t"
 	}
 	resultSetT.VoiceCall, err = system.ImportVoice()
 	if err != nil {
-		log.Info(err)
+		log.Error(err)
 		status = false
 		ShowedErr += err.Error() + "\t"
 	}
 	resultSetT.Billing, err = system.ImportBilling()
 	if err != nil {
-		log.Info(err)
+		log.Error(err)
 		status = false
 		ShowedErr += err.Error() + "\t"
 	}
 	resultSetT.Email, err = MakeEmailResult()
 	if err != nil {
-		log.Info(err)
+		log.Error(err)
 		status = false
 		ShowedErr += err.Error() + "\t"
 	}
 	resultSetT.Incidents, err = system.ImportIncident()
 	if err != nil {
-		log.Info(err)
+		log.Error(err)
 		status = false
 		ShowedErr += err.Error() + "\t"
 	}
 
 	resultSetT.Support, err = getSupport()
 	if err != nil {
-		log.Info(err)
+		log.Error(err)
 		status = false
 		ShowedErr += err.Error() + "\t"
 	}
