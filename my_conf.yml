@@ -1,0 +1,9 @@
+apport: 8080
+logfile: log.txt
+smsdata: ..\skillbox-diploma\sms.data
+voicedata: ..\skillbox-diploma\voice.data
+incidentdata: http://127.0.0.1:8383/accendent
+mmsdata: http://127.0.0.1:8383/mms
+supportdata: http://127.0.0.1:8383/support
+emaildata: ..\skillbox-diploma\email.data
+billing: ..\skillbox-diploma\billing.data

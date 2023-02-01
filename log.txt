@@ -1,0 +1,51 @@
+{"level":"info","msg":"Server Started","time":"2023-02-01T20:07:46+03:00"}
+{"level":"info","msg":"userIP: 127.0.0.1:58121, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.70","time":"2023-02-01T20:07:51+03:00"}
+{"level":"info","msg":"open sms.data: The system cannot find the file specified.","time":"2023-02-01T20:07:51+03:00"}
+{"level":"info","msg":"open voice.data: The system cannot find the file specified.","time":"2023-02-01T20:07:51+03:00"}
+{"level":"info","msg":"open billing.data: The system cannot find the file specified.","time":"2023-02-01T20:07:51+03:00"}
+{"level":"info","msg":"open email.data: The system cannot find the file specified.","time":"2023-02-01T20:07:51+03:00"}
+{"level":"info","msg":"Server Stopped","time":"2023-02-01T20:09:00+03:00"}
+{"level":"info","msg":"Server Exited Properly","time":"2023-02-01T20:09:00+03:00"}
+{"level":"info","msg":"Server Started","time":"2023-02-01T20:09:02+03:00"}
+{"level":"info","msg":"userIP: 127.0.0.1:58232, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.70","time":"2023-02-01T20:09:05+03:00"}
+{"level":"info","msg":"open ..\\sms.data: The system cannot find the file specified.","time":"2023-02-01T20:09:05+03:00"}
+{"level":"info","msg":"open ..\\voice.data: The system cannot find the file specified.","time":"2023-02-01T20:09:05+03:00"}
+{"level":"info","msg":"open ..\\billing.data: The system cannot find the file specified.","time":"2023-02-01T20:09:05+03:00"}
+{"level":"info","msg":"open ..\\email.data: The system cannot find the file specified.","time":"2023-02-01T20:09:05+03:00"}
+{"level":"info","msg":"userIP: 127.0.0.1:58232, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.70","time":"2023-02-01T20:09:11+03:00"}
+{"level":"info","msg":"open ..\\sms.data: The system cannot find the file specified.","time":"2023-02-01T20:09:11+03:00"}
+{"level":"info","msg":"open ..\\voice.data: The system cannot find the file specified.","time":"2023-02-01T20:09:11+03:00"}
+{"level":"info","msg":"open ..\\billing.data: The system cannot find the file specified.","time":"2023-02-01T20:09:11+03:00"}
+{"level":"info","msg":"open ..\\email.data: The system cannot find the file specified.","time":"2023-02-01T20:09:11+03:00"}
+{"level":"info","msg":"Server Stopped","time":"2023-02-01T20:10:15+03:00"}
+{"level":"info","msg":"Server Exited Properly","time":"2023-02-01T20:10:15+03:00"}
+{"level":"info","msg":"Server Started","time":"2023-02-01T20:10:16+03:00"}
+{"level":"info","msg":"userIP: 127.0.0.1:58334, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.70","time":"2023-02-01T20:10:22+03:00"}
+{"level":"info","msg":"userIP: 127.0.0.1:59576, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.70","time":"2023-02-01T20:26:30+03:00"}
+{"level":"info","msg":"Server Stopped","time":"2023-02-01T20:34:47+03:00"}
+{"level":"info","msg":"Server Exited Properly","time":"2023-02-01T20:34:47+03:00"}
+{"level":"info","msg":"Server Started","time":"2023-02-01T20:34:51+03:00"}
+{"level":"info","msg":"userIP: 127.0.0.1:60009, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.70","time":"2023-02-01T20:34:52+03:00"}
+{"level":"info","msg":"Server Stopped","time":"2023-02-01T20:35:08+03:00"}
+{"level":"info","msg":"Server Exited Properly","time":"2023-02-01T20:35:08+03:00"}
+{"level":"info","msg":"Server Started","time":"2023-02-01T20:49:44+03:00"}
+{"level":"info","msg":"userIP: 127.0.0.1:61245, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.70","time":"2023-02-01T20:49:51+03:00"}
+{"level":"info","msg":"userIP: 127.0.0.1:61245, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.70","time":"2023-02-01T20:50:01+03:00"}
+{"level":"info","msg":"Server Stopped","time":"2023-02-01T20:50:11+03:00"}
+{"level":"info","msg":"Server Exited Properly","time":"2023-02-01T20:50:11+03:00"}
+{"level":"info","msg":"Server Started","time":"2023-02-01T20:52:34+03:00"}
+{"level":"info","msg":"userIP: 127.0.0.1:61415, User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)","time":"2023-02-01T20:52:52+03:00"}
+{"level":"info","msg":"Server Stopped","time":"2023-02-01T21:01:35+03:00"}
+{"level":"info","msg":"Server Exited Properly","time":"2023-02-01T21:01:35+03:00"}
+{"level":"info","msg":"Server Started","time":"2023-02-01T21:15:05+03:00"}
+{"level":"info","msg":"userIP: 127.0.0.1:62701, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.70","time":"2023-02-01T21:15:14+03:00"}
+{"level":"info","msg":"userIP: 127.0.0.1:62701, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.70","time":"2023-02-01T21:17:34+03:00"}
+{"level":"info","msg":"Get \"http://127.0.0.1:8383/mms\": dial tcp 127.0.0.1:8383: connectex: No connection could be made because the target machine actively refused it.","time":"2023-02-01T21:17:36+03:00"}
+{"level":"info","msg":"Get \"http://127.0.0.1:8383/accendent\": dial tcp 127.0.0.1:8383: connectex: No connection could be made because the target machine actively refused it.","time":"2023-02-01T21:17:38+03:00"}
+{"level":"info","msg":"Get \"http://127.0.0.1:8383/support\": dial tcp 127.0.0.1:8383: connectex: No connection could be made because the target machine actively refused it.","time":"2023-02-01T21:17:40+03:00"}
+{"level":"info","msg":"userIP: 127.0.0.1:62701, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.70","time":"2023-02-01T21:17:49+03:00"}
+{"level":"info","msg":"userIP: 127.0.0.1:63306, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.70","time":"2023-02-01T21:22:56+03:00"}
+{"level":"info","msg":"Get \"http://127.0.0.1:8383/mms\": dial tcp 127.0.0.1:8383: connectex: No connection could be made because the target machine actively refused it.","time":"2023-02-01T21:22:58+03:00"}
+{"level":"info","msg":"Get \"http://127.0.0.1:8383/accendent\": dial tcp 127.0.0.1:8383: connectex: No connection could be made because the target machine actively refused it.","time":"2023-02-01T21:23:00+03:00"}
+{"level":"info","msg":"Get \"http://127.0.0.1:8383/support\": dial tcp 127.0.0.1:8383: connectex: No connection could be made because the target machine actively refused it.","time":"2023-02-01T21:23:02+03:00"}
+{"level":"info","msg":"userIP: 127.0.0.1:63306, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.70","time":"2023-02-01T21:23:06+03:00"}
